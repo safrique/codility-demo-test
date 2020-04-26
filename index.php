@@ -119,22 +119,21 @@ echo "<h1>Demo Test</h1>";
 function solution($A)
 {
     sort($A);
+    $smallest = 1;
+    $ct = count($A);
 
-    if ($A[0] > ($smallest = 1)) {
-        return $smallest;
+    if ($A[0] > $smallest || $A[$ct - 1] <= $smallest) {
+        return ($smallest + ($A[$ct - 1] == 1 ? 1 : 0));
     }
 
-    $j = count($A);
-
-    if ($j == 1) {
-        return ($smallest + ($A[0] == $smallest ? 1 : 0));
-    }
-
-    for ($i = 0; $i < $j; $i++) {
+    for ($i = 1; $i < $ct; $i++) {
         if ($A[$i] > $smallest + 1) {
             return $smallest + 1;
         }
-        $smallest = (($A[$i] > 0 && $A[$i] > $smallest) ? $A[$i] : $smallest);
+
+        if ($A[$i] > $smallest) {
+            $smallest = $A[$i];
+        }
     }
 
     return ($smallest + ($smallest == 1 ? 0 : 1));
