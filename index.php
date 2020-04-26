@@ -114,5 +114,44 @@
 
 echo "<h1>Demo Test</h1>";
 // https://app.codility.com/demo/take-sample-test/?utm_medium=email
+// Results: https://app.codility.com/demo/results/demo3JU5Y8-Z4A/
 
+function solution($A)
+{
+//    $smallest = 1;
+    sort($A);
+//    echo "A:<br>";
+//    print_r($A);
+//    echo "<br>";
 
+    if ($A[0] > ($smallest = 1)) {
+        return $smallest;
+    }
+
+    for ($i = 0, $j = count($A); $i < $j; $i++) {
+        if ($A[$i] > $smallest + 1) {
+            return $smallest + 1;
+        }
+        $smallest = ($A[$i] > 0 && $A[$i] > $smallest ? $A[$i] : $smallest);
+    }
+
+//    if ($smallest == 1) {
+//        return $smallest;
+//    }
+//
+//    return $smallest + 1;
+
+    return ($smallest + ($smallest ==1? 0 : 1));
+}
+
+$A = [1, 3, 6, 4, 1, 2];
+print_r($A);
+echo "<br>smallest: " . solution($A) . "<br><br>";
+
+$A = [1, 2, 3];
+print_r($A);
+echo "<br>smallest: " . solution($A) . "<br><br>";
+
+$A = [-1, -3];
+print_r($A);
+echo "<br>smallest: " . solution($A) . "<br><br>";
