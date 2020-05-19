@@ -1,7 +1,18 @@
 import minAbsSum from './minAbsSum.js'
 
 window.onload = () => {
-  console.log(`minAbsSum`)
+  // console.log(`minAbsSum`)
+  let arrs = [
+    [1, 2, 3],
+    [1, 2, 3, 4],
+    [1, 5, 2, -2],
+    [],
+  ]
+
+  for (let zz = 0, len = arrs.length; zz < len; zz++) {
+    console.log(`...zz=${zz} -- arrs[zz]:`, arrs[zz])
+    console.log(`solution=${minAbsSum.solution(arrs[zz])}`)
+  }
 }
 
 // import binaryGap from './binaryGap.js'
