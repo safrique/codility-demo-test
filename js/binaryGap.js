@@ -1,10 +1,17 @@
-window.onload = () => {
-  let dec = 23
-  console.log(convertBinary(dec))
-  document.getElementById(`bin`).innerHTML = `Binary of dec=${dec} equals ${convertBinary(dec)}`
+const binaryGap = {
+  convertBinary (dec) {
+    dec = dec.toString()
+    return (+dec).toString(2)
+  },
+
+  solution (N) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    let bin = this.convertBinary(N)
+    let len = bin.length
+    let remain = len
+    let gaps = []
+    let max = 0
+  }
 }
 
-function convertBinary (dec) {
-  dec = dec.toString()
-  return (+dec).toString(2)
-}
+export default binaryGap
